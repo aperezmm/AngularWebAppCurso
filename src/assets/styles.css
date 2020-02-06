@@ -43,8 +43,8 @@
 #nav ul li a{
     display: block;
     color: white;
-    line-height: 24px;
-    padding-left: 10px;
+    line-height: 22px;
+    padding-left: 12px;
     padding-right: 10px;
     transition: all 300ms;
 }
@@ -52,6 +52,12 @@
 #nav ul li a:hover{
     text-decoration: none;
     background: rgb(219, 58, 58);
+}
+
+.activado{
+    text-decoration: none !important;
+    background: rgb(219, 58, 58) !important;
+    border-bottom: 2px solid black !important;
 }
 
 #footer{
@@ -65,4 +71,8 @@
     padding: 50px;
     margin-top: 40px;
     border-radius: 8px;
+}
+
+#form-product label{
+    margin-top: 20px;
 }

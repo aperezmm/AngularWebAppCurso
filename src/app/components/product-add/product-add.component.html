@@ -1,0 +1,33 @@
+<h3>{{title}}</h3>
+<hr/>
+
+<form #formProduct="ngForm" (ngSubmit)="onSubmit()" class="col-lg-6" id="form-product"> <!-- 4 Le decimos que es un formulario de Angular -->
+
+    <label class="label label-danger">
+        Nombre
+        <strong *ngIf="!name.valid && name.touched" class="label label-danger">**El nombre es obligatorio</strong>
+    </label>
+    <input type="text" #name="ngModel" name="name" [(ngModel)]="product.nombre" class="form-control" required />
+    
+
+    <label>
+        Descripción
+        <strong *ngIf="!description.valid && description.touched" class="label label-danger">**Descripción incompleta</strong>
+    </label>
+    <textarea  #description="ngModel" name="description" [(ngModel)]="product.description" type="text" class="form-control" required></textarea>
+
+    <label>
+        Precio
+        <strong *ngIf="!price.valid && price.touched" class="label label-danger">**Precio no valido</strong>
+    </label>
+    <input type="text" #price="ngModel" name="price" [(ngModel)]="product.precio" class="form-control" required pattern="[0-9]+"/>
+
+    <label>
+        Imagen
+    </label>
+    <input type="file" name="image" class="form-control" (change)="fileChangeEvent($event)" required/>
+
+    <br>
+    <input type="submit" value="{{title}}" [disabled]="!formProduct.form.valid" class="btn btn-success"/>
+
+</form>
