@@ -7,6 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ErrorComponent } from './components/error/error.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductAddComponent } from './components/product-add/product-add.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:'home', component: HomeComponent},
   {path:'products', component: ProductListComponent},
   {path:'create-product', component: ProductAddComponent},
+  {path:'product/:id', component: ProductDetailComponent}, //Recibe un parametro, en este caso un id
   {path:'**', component: ErrorComponent} //Luego creamos ErrorComponent
 ];
 

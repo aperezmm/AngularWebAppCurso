@@ -5,12 +5,15 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-//Rut
+//Rutas
 import { routing, appRoutingProviders } from './app-routing.module';
 import { ErrorComponent } from './components/error/error.component';
+
+//Componentes
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductService } from './components/services/product.service';
 import { ProductAddComponent } from './components/product-add/product-add.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,8 @@ import { ProductAddComponent } from './components/product-add/product-add.compon
     HomeComponent,
     ErrorComponent,
     ProductListComponent,
-    ProductAddComponent
+    ProductAddComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
