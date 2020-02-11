@@ -1,6 +1,8 @@
-<h3>{{title}}</h3>
+<br>
+<div class="col-lg-4">
+    <strong><h3>{{title}}</h3></strong>
+</div>
 <hr/>
-
 <form #formProduct="ngForm" (ngSubmit)="onSubmit()" class="col-lg-6" id="form-product"> <!-- 4 Le decimos que es un formulario de Angular -->
 
     <label class="label label-danger">
@@ -25,7 +27,11 @@
     <label>
         Imagen
     </label>
+    <div *ngIf="is_edit">
+        <img src="http://localhost/cursoAngularBackend/uploads/{{product.imagen}}" width="200"/>
+    </div>
     <input type="file" name="image" class="form-control" (change)="fileChangeEvent($event)" required/>
+    
 
     <br>
     <input type="submit" value="{{title}}" [disabled]="!formProduct.form.valid" class="btn btn-success"/>

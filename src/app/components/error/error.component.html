@@ -3,9 +3,9 @@
         <h4>{{title}}</h4>
         <p>La pagina que intentas cargar no existe, prueba con estos botones</p>
         <p>
-            <a href="#" class="btn btn-lg btn-primary" >Ver productos</a>
+            <a [routerLink]="['/products']" class="btn btn-lg btn-primary" >Ver productos</a>
             -
-            <a href="#" class="btn btn-lg btn-success">Añadir productos</a>
+            <a [routerLink]="['/create-product']" class="btn btn-lg btn-success">Añadir productos</a>
         </p>
     </div>
 </div>

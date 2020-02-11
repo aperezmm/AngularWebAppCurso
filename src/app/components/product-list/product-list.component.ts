@@ -12,6 +12,7 @@ import { Product } from '../models/product';
 export class ProductListComponent implements OnInit {
   public title:string;
   public products: Product[];
+  public confirmado;
 
   constructor(
     private _route: ActivatedRoute,
@@ -24,7 +25,11 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit() {
     console.log('product-list.component.ts cargado.');
+    this.getProducts();  
+    this.confirmado = null;  
+  }
 
+  getProducts(){
     this._productService.getProducts().subscribe(
       
       result => {
@@ -32,6 +37,29 @@ export class ProductListComponent implements OnInit {
           console.log(result);
         }else{
           this.products = result.data;
+        }
+      },
+      error => {
+        console.log(<any>error);
+      }
+    );
+  }
+
+  borrarConfirm(id){
+    this.confirmado = id;
+  }
+
+  cancelarConfirm(){
+    this.confirmado = null;
+  }
+
+  onDeleteProduct(id){
+    this._productService.deleteProduct(id).subscribe(
+      response =>{
+        if(response.code == 200){
+          this.getProducts();
+        }else{
+          alert('Error al borrar el producto');
         }
       },
       error => {

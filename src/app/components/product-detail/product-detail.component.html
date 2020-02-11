@@ -1,1 +1,16 @@
-<h1>Detalle del producto</h1>
+<div *ngIf="!product">
+    <p>Cargando producto...</p>
+</div>
+<div class="row" *ngIf="product">
+    <br>
+    <div class="col-lg-3" *ngIf="product.imagen">
+        <img src="http://localhost/cursoAngularBackend/uploads/{{product.imagen}}" class="product_imagen"/>
+    </div>
+    <div class="col-lg-8" >
+        <br>
+        <h3>{{product.nombre}}</h3>    
+        <p><strong>$ {{product.precio}}</strong></p>
+        <p>{{product.description}}</p>
+    </div>    
+</div>
+

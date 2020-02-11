@@ -21,7 +21,27 @@ export class ProductDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getProduct();
     console.log('product-detail.component.ts cargado.');
+  }
+
+  getProduct(){
+    this._route.params.forEach((params: Params) => {
+      let id = params['id']; //Capturar el id de la URL 
+      
+      this._productService.getProduct(id).subscribe(
+        response =>{
+          if(response.code == 200){
+            this.product = response.data;
+          }else{
+            this._router.navigate(['/products']);
+          }
+        },
+        error =>{
+          console.log(<any>error);
+        }
+      );
+    });
   }
 
 }

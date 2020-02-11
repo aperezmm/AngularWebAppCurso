@@ -19,6 +19,10 @@ export class ProductService{
         return this._http.get(this.url+'productos').map(res => res.json()); //Petición al servicio rest
     }
 
+    getProduct(id){
+        return this._http.get(this.url+'producto/'+id).map(res => res.json()); //Database devolver un solo producto por la ID
+    }
+
     addProduct(product: Product){
         let json = JSON.stringify(product); //Lo convertimos a variable JSON para poder enviarlo
         let params = 'json='+json; //Parametro que recibe el backend
@@ -28,6 +32,21 @@ export class ProductService{
         return this._http.post(this.url+'productos', params, {headers: headers})
             .map(res => res.json());
 
+    }
+
+    editProduct(id, product: Product){
+        let json = JSON.stringify(product);
+        let params = 'json='+json;
+        let headers = new Headers({'Content-Type':'application/x-www-form-urlencoded'});
+
+        return this._http.post(this.url+'update-producto/'+id, params, {headers: headers})
+            .map(res => res.json());
+
+    }
+
+    deleteProduct(id){
+        return this._http.get(this.url+'delete-producto/'+id)
+            .map(res => res.json());
     }
 
     makeFileRequest(url:string, params:Array<string>, files:Array<File>){

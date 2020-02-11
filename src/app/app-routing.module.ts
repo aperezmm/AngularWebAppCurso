@@ -8,6 +8,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductAddComponent } from './components/product-add/product-add.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { ProductEditComponent } from './components/product-edit/product-edit.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path:'products', component: ProductListComponent},
   {path:'create-product', component: ProductAddComponent},
   {path:'product/:id', component: ProductDetailComponent}, //Recibe un parametro, en este caso un id
+  {path:'update-producto/:id', component: ProductEditComponent},
   {path:'**', component: ErrorComponent} //Luego creamos ErrorComponent
 ];
 

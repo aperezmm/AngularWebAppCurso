@@ -24,7 +24,7 @@ export class ProductAddComponent implements OnInit {
     private _route: ActivatedRoute,
     private _router: Router
   ) { 
-    this.title = 'Crear un nuevo producto';
+    this.title = 'Enviar';
     this.product = new Product(0, '', '', 0, ''); //6 Creamos la propiedad producto para vincular al form
   }
 
@@ -37,7 +37,7 @@ export class ProductAddComponent implements OnInit {
     
     console.log(this.filesToUpload.length);
       
-      if(this.filesToUpload.length >= 1){
+      if(this.filesToUpload && this.filesToUpload.length >= 1){
         this._productService.makeFileRequest(GLOBAL.url+'upload-file', [], this.filesToUpload).then((result) => {
           console.log(result);
           this.resultUpload = result;
